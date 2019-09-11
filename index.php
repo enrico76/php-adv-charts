@@ -15,6 +15,8 @@
 
     <!-- JS: HANDLEBARS -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/handlebars.js/4.1.0/handlebars.min.js" charset="utf-8"></script>
+    <!--CHART JS-->
+    <script src="https://cdn.jsdelivr.net/npm/chart.js@2.8.0/dist/Chart.min.js"></script>
     <!-- TEMPLATE: MESSAGE MENU -->
     <script id="item-template" type="text/x-handlebars-template">
     </script>
@@ -28,7 +30,9 @@
     <title>php-adv-charts</title>
   </head>
   <body>
-
+    <canvas id='monthly-sales'></canvas>
+    
+   <canvas id='sales-by-agent'></canvas>
 
   </body>
 </html>
