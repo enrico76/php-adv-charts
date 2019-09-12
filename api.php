@@ -1,6 +1,6 @@
 <?php
   include 'database.php';
   header('Content-type: application/json');
-  $res = $graphs;
-  echo json_encode($res);
+  $data;
+  echo json_encode($data);
 ?>

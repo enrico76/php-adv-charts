@@ -1,31 +1,21 @@
-function mesi() {
+function getMesi() {
   var months = moment.months();
-  console.log(months);
   return months;
+
 }
 
 
-
-
-
-
-
-function init() {
-    moment.locale('it');
-    getData();
-}
-
-$(document).ready(init);
 
 function getData() {
 
   $.ajax({
-    url: 'fulldb.php',
+    url: 'api.php',
     method: 'GET',
     success: function(data) {
       console.log(data);
-      var tempo = mesi();
-      createMonthch(data);
+      console.log(typeof(data));
+
+      createChart1(data, 'monthly-sales');
 
     },
     error: function() {
@@ -34,19 +24,28 @@ function getData() {
 
   })
 }
-function createMonthch(dataset) {
+function createChart1(data, id) {
+
   var ctx = document.getElementById('monthly-sales').getContext('2d');
 
   var chart = new Chart(ctx, {
-    type: line,
+    type: 'line',
     data: {
-      labels: moment.months(),
+      labels: getMesi(),
       dataset: [{
-        label: 'vendite mensili',
+        label: 'vendite',
         backgroundColor: 'rgb(105, 150, 132)',
         borderColor: 'rgb(255, 99, 132)',
-        data: dataset.data
+        data: data,
       }]
     }
   })
 }
+
+function init() {
+    moment.locale('it');
+
+    getData();
+}
+
+$(document).ready(init);
